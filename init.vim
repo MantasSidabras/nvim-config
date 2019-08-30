@@ -8,8 +8,27 @@ call plug#begin('~/.config/nvim/bundle')
   Plug 'mxw/vim-jsx' " JSX syntax
   Plug 'ianks/vim-tsx' " TSX syntax
   Plug 'shougo/deoplete.nvim' " suggestion and autocomplete
+"------------------------ COC ------------------------
+" coc for tslinting, auto complete and prettier
+  Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+" coc extensions
+  let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier']
+"------------------------ VIM TSX ------------------------
+" by default, if you open tsx file, neovim does not show syntax colors
+" vim-tsx will do all the coloring for jsx in the .tsx file
+  Plug 'ianks/vim-tsx'
+  "------------------------ VIM TSX ------------------------
+" by default, if you open tsx file, neovim does not show syntax colors
+" typescript-vim will do all the coloring for typescript keywords
   Plug 'leafgarland/typescript-vim'
 call plug#end()
+
+" == AUTOCMD ================================ 
+" by default .ts file are not identified as typescript and .tsx files are not
+" identified as typescript react file, so add following
+au BufNewFile,BufRead *.ts setlocal filetype=typescript
+au BufNewFile,BufRead *.tsx setlocal filetype=typescript.tsx
+" == AUTOCMD END ================================
 
 set number	" Show line numbers
 set linebreak	" Break lines at word (requires Wrap lines)
