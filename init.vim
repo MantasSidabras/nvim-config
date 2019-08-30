@@ -4,6 +4,11 @@ call plug#begin('~/.config/nvim/bundle')
   Plug '907th/vim-auto-save'
   Plug 'vim-airline/vim-airline'
   Plug 'scrooloose/nerdtree'
+  Plug 'othree/yajs.vim'
+  Plug 'mxw/vim-jsx' " JSX syntax
+  Plug 'ianks/vim-tsx' " TSX syntax
+  Plug 'shougo/deoplete.nvim' " suggestion and autocomplete
+  Plug 'leafgarland/typescript-vim'
 call plug#end()
 
 set number	" Show line numbers
@@ -33,6 +38,13 @@ set softtabstop=2	" Number of spaces per Tab
 :augroup END
 
 let g:auto_save = 1
+let g:deoplete#enable_at_startup = 1
+
+" let g:ale_fixers = {
+" /    'javascript': ['eslint'],
+" }
+
+let g:ale_fix_on_save = 1
 
 let g:delimitMate_expand_cr = 2
 let g:delimitMate_expand_space = 1
