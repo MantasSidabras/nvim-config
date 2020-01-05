@@ -6,24 +6,12 @@ call plug#begin('~/config/nvim/bundle')
   Plug 'scrooloose/nerdtree'
   Plug 'scrooloose/nerdcommenter'
   Plug 'othree/yajs.vim'
-  Plug 'mxw/vim-jsx' " JSX syntax
-  Plug 'ianks/vim-tsx' " TSX syntax
   Plug 'shougo/deoplete.nvim' " suggestion and autocomplete
   Plug 'ctrlpvim/ctrlp.vim'
-"------------------------ COC ------------------------
-" coc for tslinting, auto complete and prettier
-"  Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-  Plug 'neoclide/coc.nvim', {'tag': '*', 'branch': 'release'}
-" coc extensions
-  let g:coc_global_extensions = ['coc-tslint-plugin', 'coc-tsserver', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-yank', 'coc-prettier']
-"------------------------ VIM TSX ------------------------
-" by default, if you open tsx file, neovim does not show syntax colors
-" vim-tsx will do all the coloring for jsx in the .tsx file
-  Plug 'ianks/vim-tsx'
-  "------------------------ VIM TSX ------------------------
-" by default, if you open tsx file, neovim does not show syntax colors
-" typescript-vim will do all the coloring for typescript keywords
+  Plug 'pangloss/vim-javascript'
   Plug 'leafgarland/typescript-vim'
+  Plug 'maxmellon/vim-jsx-pretty'
+  Plug 'majutsushi/tagbar'
 
   " themes
   Plug 'sonph/onehalf', {'rtp': 'vim/'}
@@ -58,9 +46,22 @@ set softtabstop=2	" Number of spaces per Tab
 set splitbelow
 set splitright
 
+" copy paste to real clipboard
+set clipboard=unnamedplus
+" noremap <Leader>y "+y
+" noremap <Leader>p "+p
+" noremap <Leader>Y "+Y
+" noremap <Leader>P "+P
+
+
 " for nerdcommenter
 let g:NERDSpaceDelims = 1
 let g:NERDCompactSexyComs = 1
+nmap <C-_>   <Plug>NERDCommenterToggle
+vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
+
+" Tagbar
+nmap <F8> :TagbarToggle<CR>
 
 " Hybrid line numbering
 :set number relativenumber
@@ -93,6 +94,7 @@ nnoremap <C-DOWN> <C-W><C-J>
 nnoremap <C-UP> <C-W><C-K>
 nnoremap <C-RIGHT> <C-W><C-L>
 nnoremap <C-LEFT> <C-W><C-H>
+"----------------------------------------
 "----------------------------------------
 
 imap jk <Esc>
