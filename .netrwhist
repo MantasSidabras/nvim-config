@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/Users/mantassidabras/Code/word-bank/star-wars'
+let g:netrw_dirhist_0='/Users/mantassidabras/Code/amazon/aws-tutorial-code/s3'
+let g:netrw_dirhist_9='/Users/mantassidabras/work/frontend'
+let g:netrw_dirhist_8='/Users/mantassidabras/Code/alcotracker/server'
+let g:netrw_dirhist_7='/Users/mantassidabras/Code/PolyCubeSolver'
+let g:netrw_dirhist_6='/Users/mantassidabras/Code/PolyCubeSolver/src/services'
+let g:netrw_dirhist_5='/Users/mantassidabras/Code/PolyCubeSolver/src'
+let g:netrw_dirhist_4='/Users/mantassidabras/Code/PolyCubeSolver'
+let g:netrw_dirhist_3='/Users/mantassidabras/Code/alcotracker/server'
+let g:netrw_dirhist_2='/Users/mantassidabras/Code/alcotracker'
