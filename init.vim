@@ -5,6 +5,7 @@ source $XDG_CONFIG_HOME/nvim/pieces/remaps.vim
 source $XDG_CONFIG_HOME/nvim/pieces/bindings.vim
 source $XDG_CONFIG_HOME/nvim/pieces/window_bindings.vim 
 source $XDG_CONFIG_HOME/nvim/pieces/quick_fix.vim
+source $XDG_CONFIG_HOME/nvim/pieces/git_bindings.vim
 
 source $XDG_CONFIG_HOME/nvim/pieces/file_types.vim
 source $XDG_CONFIG_HOME/nvim/pieces/netrw.vim
@@ -12,6 +13,8 @@ source $XDG_CONFIG_HOME/nvim/pieces/theme.vim
 source $XDG_CONFIG_HOME/nvim/pieces/plugin_rainbow_parenthesis.vim
 source $XDG_CONFIG_HOME/nvim/pieces/plugin_startify.vim
 source $XDG_CONFIG_HOME/nvim/pieces/plugin_vimwiki.vim
+" TODO configure which key
+" source $XDG_CONFIG_HOME/nvim/pieces/plugin_which_key.vim
 
 source $XDG_CONFIG_HOME/nvim/pieces/vimspector.vim
 source $XDG_CONFIG_HOME/nvim/pieces/plugin_airline.vim
