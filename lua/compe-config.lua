@@ -1,4 +1,6 @@
-vim.o.completeopt = "menuone,noselect"
+vim.o.completeopt = "menuone,noselect,noinsert"
+
+local lspkind = require('lspkind')
 
 require'compe'.setup {
   enabled = true;
@@ -14,7 +16,9 @@ require'compe'.setup {
   max_menu_width = 100;
   documentation = true;
 
-  source = { path = true; buffer = true;
+  source = {
+    path = true;
+    buffer = true;
     calc = true;
     vsnip = true;
     nvim_lsp = true;
@@ -25,4 +29,3 @@ require'compe'.setup {
     treesitter = true;
   };
 }
-
