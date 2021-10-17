@@ -9,6 +9,8 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugins")
   " Plug 'preservim/nerdtree'
   " Plug 'ryanoasis/vim-devicons' " nerdtree icons
   " Plug 'tiagofumo/vim-nerdtree-syntax-highlight' " nerdtree icon colors
+  Plug 'ptzz/lf.vim'
+  Plug 'voldikss/vim-floaterm'
   Plug 'junegunn/rainbow_parentheses.vim'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
@@ -25,15 +27,17 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugins")
 
   " autocomplete
   Plug 'neovim/nvim-lspconfig'
+  Plug 'williamboman/nvim-lsp-installer'
   Plug 'glepnir/lspsaga.nvim' " code actions 
   Plug 'nvim-lua/lsp_extensions.nvim' " smart inlay hints
   Plug 'onsails/lspkind-nvim'
-  Plug 'hrsh7th/nvim-compe'
-  Plug 'hrsh7th/cmp-nvim-lsp'
-  Plug 'hrsh7th/cmp-buffer'
-  Plug 'hrsh7th/nvim-cmp'
-  Plug 'L3MON4D3/LuaSnip'
-  Plug 'saadparwaiz1/cmp_luasnip'
+  " Plug 'hrsh7th/cmp-nvim-lsp'
+  " Plug 'hrsh7th/cmp-buffer'
+  " Plug 'hrsh7th/nvim-cmp'
+  Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+  Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+  Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
+
 
   " fuzzy find
   Plug 'nvim-lua/popup.nvim'

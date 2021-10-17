@@ -5,18 +5,13 @@ let g:mapleader="\<Space>"
 cmap w!! w !sudo tee %  
 imap jk <Esc>
 
-" TAB in normal mode will move to text buffer
 nnoremap <silent> <TAB> :bnext<CR>
-" SHIFT-TAB will go back
 nnoremap <silent> <S-TAB> :bprevious<CR>
-nnoremap <BS> :bdelete<CR>
-
-nnoremap <silent> <Leader>q :bdelete<CR>
+nnoremap <silent><BS> :bdelete<CR>
 "nmap <M-;> msA;<ESC>`s
 
 nmap <silent> <CR> :nohl<CR>
 
-" center window on insert
 autocmd InsertEnter * norm zz
 
 
@@ -33,7 +28,8 @@ nnoremap N Nzzzv
 vnoremap < <gv
 vnoremap > >gv
 
-imap <silent> <Esc> <Esc>:update<CR>
+" save on leaving insert mode
+"imap <silent> <Esc> <Esc>:update<CR>
 
 nmap <silent> Q :q<CR>
 nmap <silent> <C-q> :q<CR>
@@ -42,4 +38,3 @@ nmap <silent> <C-q> :q<CR>
 nnoremap <C-s> :w<CR>
 " Use control-c instead of escape
 nnoremap <C-c> <Esc>
-" <TAB>: completion.

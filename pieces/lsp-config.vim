@@ -15,4 +15,5 @@ nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 " inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "
 
-autocmd BufWritePre *.lua lua vim.lsp.buf.formatting_sync(nil, 100)
+nnoremap ,f <cmd>lua vim.lsp.buf.formatting()<CR>
+autocmd BufWritePre * lua vim.lsp.buf.formatting_seq_sync()

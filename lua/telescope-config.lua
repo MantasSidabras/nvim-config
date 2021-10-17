@@ -2,6 +2,7 @@ local actions = require('telescope.actions')
 
 local previewers = require('telescope.previewers')
 local Job = require('plenary.job')
+
 local new_maker = function(filepath, bufnr, opts)
     filepath = vim.fn.expand(filepath)
     Job:new({
@@ -27,34 +28,13 @@ require('telescope').setup {
             'rg', '--no-heading', '--with-filename', '--line-number', '--column',
             '--smart-case'
         },
-        prompt_prefix = "> ",
-        selection_caret = "> ",
-        entry_prefix = "  ",
-        initial_mode = "insert",
-        selection_strategy = "reset",
-        sorting_strategy = "descending",
-        layout_strategy = "horizontal",
-        -- layout_defaults = {horizontal = {mirror = false}, vertical = {mirror = false}},
-        -- file_sorter = require'telescope.sorters'.get_fuzzy_file,
         file_sorter = require'telescope.sorters'.get_fzy_sorter,
         file_ignore_patterns = {},
         generic_sorter = require'telescope.sorters'.get_generic_fuzzy_sorter,
         layout_config = {prompt_position = "bottom", width = 0.70, preview_cutoff = 120},
-        -- shorten_path = true,
-        winblend = 0,
-        -- width = 0.75,
-        -- preview_cutoff = 120,
-        -- results_h
-        -- ight = 1,
-        -- results_width = 0.8,
-        border = {},
-        borderchars = {'─', '│', '─', '│', '╭', '╮', '╯', '╰'},
         color_devicons = true,
         use_less = true,
         set_env = {['COLORTERM'] = 'truecolor'}, -- default = nil,
-        file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
-        grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
-        qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
 
         -- Developer configurations: Not meant for general override
         buffer_previewer_maker = new_maker,
@@ -113,8 +93,17 @@ local M = {
         local opts = {} -- define here if you want to define something
         local ok = pcall(require'telescope.builtin'.git_files, opts)
         if not ok then require'telescope.builtin'.find_files(opts) end
+    end,
+
+    curr_buffer = function()
+        require('telescope.builtin').current_buffer_fuzzy_find({
+            layout_strategy = 'horizontal',
+            layout_config = {
+                prompt_position = 'top',
+                horizontal = {width = 0.9, height = 20}
+            },
+            sorting_strategy = 'ascending'
+        })
     end
-
 }
-
 return M
