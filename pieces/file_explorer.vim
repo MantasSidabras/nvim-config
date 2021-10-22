@@ -1,20 +1,17 @@
-nnoremap <leader>b :NERDTreeFocus<CR>
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_preview = 1
+" fix dangling buffer behaviour
+autocmd FileType netrw setl bufhidden=wipe
 
-function! IsNerdTreeEnabled()
-    return exists('g:NERDTree') && g:NERDTree.IsOpen()
-endfunction
-" focus current file when opened
-function! NERDTreeToggler()
-    if !IsNerdTreeEnabled()
-        :execute 'NERDTreeFind'
-    else
-        :execute 'NERDTreeToggle'
-    endif
-endfunction
+" nnoremap <leader>e :E<CR>
+" nnoremap <leader>v :Vex<CR>
+let g:lf_replace_netrw = 1
+let g:lf_replace_netrw = 1
+let g:lf_map_keys = 0
+let g:lf_map_keys = 0
 
-nnoremap <silent><C-b> :call NERDTreeToggler()<CR>
-    
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-"             \ execute 'NERDTree' argv()[0] | wincmd p | enew | execute 'cd '.argv()[0] | endif
-
+nnoremap <C-n> :NvimTreeToggle<CR>
+nnoremap - :Lf<CR>
+let g:lf_width = 0.8
+let g:lf_height = 0.9

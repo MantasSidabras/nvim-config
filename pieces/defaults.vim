@@ -5,7 +5,7 @@ set path+=**
 set nowrap      " no line wrap!
 set showmatch	" Highlight matching brace
 set visualbell	" Use visual bell (no beeping)
-set signcolumn=yes
+set signcolumn=yes:2
 
 set hlsearch	" Highlight all search results
 set smartcase	" Enable smart-case search

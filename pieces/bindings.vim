@@ -38,3 +38,11 @@ nmap <silent> <C-q> :q<CR>
 nnoremap <C-s> :w<CR>
 " Use control-c instead of escape
 nnoremap <C-c> <Esc>
+
+" :lua require("plenary.reload").reload_module("lsp")<cr>
+nnoremap <leader>` :lua require("plenary.reload").reload_module("telescope-config")<cr>
+    \:lua require("plenary.reload").reload_module("treesitter-config")<cr>
+    \:so $VIMRC<cr>
+ab xx :lua require("plenary.reload").reload_module("telescope-config")<cr>
+    \:lua require("plenary.reload").reload_module("treesitter-config")<cr>
+    \:so $VIMRC<cr>
