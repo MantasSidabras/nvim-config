@@ -2,6 +2,15 @@
   "coc.preferences.formatOnSaveFiletypes": ["*"],
   "python.formatting.provider": "autopep8",
   "python.formatting.autopep8Path": "/usr/local/bin/autopep8",
-  "python.linting.flake8Enabled": true,
-  "python.linting.pylintEnabled": true
+  "python.linting.flake8Enabled": false,
+  "python.linting.pylintEnabled": true,
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform", "tf"],
+      "initializationOptions": {},
+      "settings": {}
+    }
+  }
 }

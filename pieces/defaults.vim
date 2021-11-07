@@ -38,6 +38,7 @@ set ruler                 " show cursor possition
 set showtabline=2         " Always show tabs
 set timeoutlen=500        " By default timeoutlen is 1000 ms
 set updatetime=300        " Faster completion
+set foldmethod=manual
 
 set splitbelow
 set splitright

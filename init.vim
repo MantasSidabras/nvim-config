@@ -17,7 +17,6 @@ source $XDG_CONFIG_HOME/nvim/pieces/plugin_vimwiki.vim
 " source $XDG_CONFIG_HOME/nvim/pieces/plugin_which_key.vim
 
 source $XDG_CONFIG_HOME/nvim/pieces/vimspector.vim
-source $XDG_CONFIG_HOME/nvim/pieces/plugin_airline.vim
 source $XDG_CONFIG_HOME/nvim/pieces/coc-config.vim
 "source $XDG_CONFIG_HOME/nvim/pieces/lsp-config.vim
 

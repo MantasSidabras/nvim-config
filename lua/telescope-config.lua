@@ -31,7 +31,12 @@ require('telescope').setup {
         file_sorter = require'telescope.sorters'.get_fzy_sorter,
         file_ignore_patterns = {},
         generic_sorter = require'telescope.sorters'.get_generic_fuzzy_sorter,
-        layout_config = {prompt_position = "bottom", width = 0.70, preview_cutoff = 120},
+        layout_config = {
+          prompt_position = "bottom",
+          width = 0.70,
+          preview_cutoff = 120, 
+          horizontal = {width = 0.9}
+        },
         color_devicons = true,
         use_less = true,
         set_env = {['COLORTERM'] = 'truecolor'}, -- default = nil,

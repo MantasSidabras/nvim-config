@@ -5,6 +5,9 @@ let g:mapleader="\<Space>"
 cmap w!! w !sudo tee %  
 imap jk <Esc>
 
+nnoremap <leader>ss :mksession! $VIMCONFIG/sessions/
+nnoremap <leader>ls :source! $VIMCONFIG/sessions/
+
 nnoremap <silent> <TAB> :bnext<CR>
 nnoremap <silent> <S-TAB> :bprevious<CR>
 nnoremap <silent><BS> :bdelete<CR>
