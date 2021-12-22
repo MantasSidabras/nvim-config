@@ -31,14 +31,14 @@ require('telescope').setup {
         file_sorter = require'telescope.sorters'.get_fzy_sorter,
         file_ignore_patterns = {},
         generic_sorter = require'telescope.sorters'.get_generic_fuzzy_sorter,
+        path_display = { truncate = 2 },
         layout_config = {
           prompt_position = "bottom",
-          width = 0.70,
+          width = 0.50,
           preview_cutoff = 120, 
           horizontal = {width = 0.9}
         },
         color_devicons = true,
-        use_less = true,
         set_env = {['COLORTERM'] = 'truecolor'}, -- default = nil,
 
         -- Developer configurations: Not meant for general override
@@ -96,7 +96,12 @@ local M = {
     end,
 
     project_files = function()
-        local opts = {} -- define here if you want to define something
+        local opts = { 
+          layout_strategy = 'horizontal', 
+          layout_config = {
+                horizontal = {width = 0.99, height = 0.9},
+          }, 
+        } -- define here if you want to define something
         local ok = pcall(require'telescope.builtin'.git_files, opts)
         if not ok then require'telescope.builtin'.find_files(opts) end
     end,
@@ -106,7 +111,7 @@ local M = {
             layout_strategy = 'horizontal',
             layout_config = {
                 prompt_position = 'top',
-                horizontal = {width = 0.9, height = 20}
+                horizontal = {width = 0.99, height = 20}
             },
             sorting_strategy = 'ascending'
         })

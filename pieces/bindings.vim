@@ -8,9 +8,7 @@ imap jk <Esc>
 nnoremap <leader>ss :mksession! $VIMCONFIG/sessions/
 nnoremap <leader>ls :source! $VIMCONFIG/sessions/
 
-nnoremap <silent> <TAB> :bnext<CR>
-nnoremap <silent> <S-TAB> :bprevious<CR>
-nnoremap <silent><BS> :bdelete<CR>
+nnoremap <silent><BS> :bd<CR>
 "nmap <M-;> msA;<ESC>`s
 
 nmap <silent> <CR> :nohl<CR>
@@ -22,6 +20,9 @@ augroup highlight_yank
     autocmd!
     autocmd TextYankPost * silent! lua vim.highlight.on_yank { timeout=600 }
 augroup END
+
+"C-l act like C-h"
+inoremap <C-l> <DEL>
 
 " center searchresult
 nnoremap n nzzzv
@@ -42,10 +43,8 @@ nnoremap <C-s> :w<CR>
 " Use control-c instead of escape
 nnoremap <C-c> <Esc>
 
-" :lua require("plenary.reload").reload_module("lsp")<cr>
-nnoremap <leader>` :lua require("plenary.reload").reload_module("telescope-config")<cr>
-    \:lua require("plenary.reload").reload_module("treesitter-config")<cr>
-    \:so $VIMRC<cr>
 ab xx :lua require("plenary.reload").reload_module("telescope-config")<cr>
-    \:lua require("plenary.reload").reload_module("treesitter-config")<cr>
-    \:so $VIMRC<cr>
+    " \:lua require("plenary.reload").reload_module("nvim-tree")<cr>
+    " \:lua require("plenary.reload").reload_module("lua/treesitter-config")<cr>
+    " \:lua require("plenary.reload").reload_module("miscellaneous")<cr>
+   \:so $VIMRC<cr>

@@ -1,4 +1,5 @@
 require('gitsigns').setup()
+require('nvim-autopairs').setup{}
 require('lualine').setup{
   options = {},
       options = {
@@ -14,7 +15,7 @@ require('lualine').setup{
         lualine_b = {'branch', 'diff', {'diagnostics', sources={'nvim_lsp', 'coc'}}
         },
         lualine_c = {'filename'},
-        lualine_x = {'encoding', 'fileformat', 'filetype'},
+        lualine_x = {'encoding', 'filetype'},
         lualine_y = {'progress'},
         lualine_z = {'location'}
       },
@@ -32,7 +33,7 @@ require('lualine').setup{
       -- lualine_c = {'filename'},
       -- lualine_x = {},
       -- lualine_y = {},
-      lualine_z = {'tabs'}
+      -- lualine_z = {'tabs'}
   },
   extensions = { }
 }
