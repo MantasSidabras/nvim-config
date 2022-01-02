@@ -7,6 +7,11 @@ autocmd FileType netrw setl bufhidden=wipe
 " nnoremap <leader>e :E<CR>
 " nnoremap <leader>v :Vex<CR>
 
+augroup FernGroup
+  autocmd!
+  autocmd FileType fern setlocal norelativenumber | setlocal nonumber
+augroup END
+
 let g:fern#renderer = "nerdfont"
 nnoremap <silent><leader>bm :Fern bookmark:///<CR>
 nnoremap <silent><C-n> :Fern . -reveal=% -drawer  -width=40 -toggle<CR>
@@ -21,6 +26,4 @@ cab Ex :Fern . -reveal=%<CR>
 cab E :Fern . -reveal=%<CR>
 cab Sex :Fern . -opener=split -reveal=%<CR>
 nnoremap - :Fern . -reveal=%<CR>
-" nnoremap - :Lf<CR>
-let g:lf_width = 0.8
-let g:lf_height = 0.9
+

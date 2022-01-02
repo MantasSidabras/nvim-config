@@ -2,11 +2,6 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugins")
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-dadbot' " use for databases in future
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -19,9 +14,6 @@ Plug 'kana/vim-arpeggio'
 " Plug 'jiangmiao/auto-pairs'
 Plug 'windwp/nvim-autopairs'
 Plug 'vimwiki/vimwiki'
-
-" utils
-Plug 'nvim-lua/plenary.nvim'
 
 " debugger
 Plug 'puremourning/vimspector'
@@ -60,8 +52,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim' 
 Plug 'nvim-telescope/telescope-fzy-native.nvim'
 

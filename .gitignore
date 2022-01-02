@@ -1,3 +1,5 @@
 plugins
 lua-language-server
 .netrwhist
+plugin/packer_compiled.lua
+.DS_Store
