@@ -1,7 +1,7 @@
-local g = vim.g
+local g = vim.g   -- global
 local o = vim.opt
-local wo = vim.wo
-local bo = vim.bo
+local wo = vim.wo -- window
+local bo = vim.bo -- buffer
 
 g.noswapfile = true  
 g.nobackup = true
@@ -35,8 +35,8 @@ o.encoding = "utf-8"
 o.fileencoding = "utf-8"    
 o.formatoptions:remove {"cro"} -- Stop newline continution of comments
 o.hidden = false                
--- o.iskeyword:append {"-"}
-o.iskeyword:remove {"_"} -- make _ as word delimeter
+o.iskeyword:append {"-"}
+-- o.iskeyword:remove {"_"} -- make _ as word delimeter
 o.laststatus = 0
 -- set pumheight=10          
 o.ruler = true                 

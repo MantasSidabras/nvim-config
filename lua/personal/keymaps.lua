@@ -21,7 +21,7 @@ keymap("i", "jk", "<ESC>", opts)
 keymap("i", "C-l", "<DEL>", opts)
 
 -- Normal 
-keymap("n", "<BS>", ":bd<CR>", opts)
+keymap("n", "<BS>", ":Bd<CR>", opts)
 keymap("n", "<CR>", ":nohl<CR>", opts)
 keymap("n", "Q", ":q<CR>", opts)
 keymap("n", "<C-s>", ":w<CR>", noremap)

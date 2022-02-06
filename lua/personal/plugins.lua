@@ -28,16 +28,55 @@ packer.init {
 }
 
 return packer.startup(function(use)
-  
   use {'wbthomason/packer.nvim'} -- plugin manager
   use {'nvim-lua/plenary.nvim'}
   use {'nvim-lua/popup.nvim'}
 
+  use { 'lewis6991/gitsigns.nvim'}
+  use { 'norcalli/nvim-colorizer.lua'}
+  use { 'nvim-lualine/lualine.nvim' }
+  use { 'airblade/vim-rooter' }
+  use { 'vimwiki/vimwiki' }
+  use { 'morhetz/gruvbox'}
+  use { 'liuchengxu/vim-which-key'}
+  use { 'mhinz/vim-startify'}
+  use { 'kana/vim-arpeggio' }
+  use { 'windwp/nvim-autopairs' }
+
+-- File explorer
+  use{'lambdalisue/nerdfont.vim'}
+  use{'lambdalisue/fern.vim'}
+  use{'lambdalisue/fern-renderer-nerdfont.vim'}
+  use{'lambdalisue/fern-hijack.vim'}
+  use{'lambdalisue/fern-bookmark.vim'}
+  use {'kyazdani42/nvim-web-devicons'} -- for file icons
+
+
+-- COC completion
+  use { 'fannheyward/telescope-coc.nvim' }
+  use { 'neoclide/coc.nvim', branch = 'release' }
+
+-- fuzzy find
+  use { 'junegunn/fzf',  run = function() vim.fn['fzf#install']() end } 
+  use { 'junegunn/fzf.vim' }
+
+  use {'andymass/vim-matchup', event = 'VimEnter'}
   use {'tpope/vim-surround'}
   use {'tpope/vim-unimpaired'}
   use {'tpope/vim-commentary'}
   use {'tpope/vim-fugitive'}
   use {'tpope/vim-dadbod'} -- use for databases in future
+  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview' }
+
+
+  use {'moll/vim-bbye'}
+  use { "ThePrimeagen/refactoring.nvim", requires = { {"nvim-lua/plenary.nvim"}, {"nvim-treesitter/nvim-treesitter"} } }
+
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use { 'nvim-treesitter/playground' }
+  use { 'p00f/nvim-ts-rainbow' }
+  use {'nvim-telescope/telescope.nvim'} 
+  use {'nvim-telescope/telescope-fzy-native.nvim'}
 
   if PACKER_BOOTSTRAP then
     require("packer").sync()
