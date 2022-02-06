@@ -125,4 +125,13 @@ local M = {
         })
     end
 }
+
+
+
+
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+keymap("n", "<leader>r", "<cmd>Telescope live_grep<cr>", opts)
+keymap("n", "<leader>t", "<cmd>Telescope<cr>", opts) keymap("n", "<leader>cc", "<cmd>Telescope coc", opts) 
+keymap("n", "<leader><end>", "<cmd>lua require('personal/telescope-config').search_vimfiles()<cr>", opts)
 return M

@@ -14,8 +14,8 @@ augroup highlight_yank
     autocmd TextYankPost * silent! lua vim.highlight.on_yank { timeout=600 }
 augroup END
 
-ab xx :lua require("plenary.reload").reload_module("telescope-config")<cr>
+" ab xx :lua require("plenary.reload").reload_module("telescope-config")<cr>
     " \:lua require("plenary.reload").reload_module("nvim-tree")<cr>
     " \:lua require("plenary.reload").reload_module("lua/treesitter-config")<cr>
     " \:lua require("plenary.reload").reload_module("miscellaneous")<cr>
-   \:so $VIMRC<cr>
+   " \:so $VIMRC<cr>

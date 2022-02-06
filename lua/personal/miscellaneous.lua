@@ -1,5 +1,3 @@
-require('gitsigns').setup()
-require('nvim-autopairs').setup{}
 require('lualine').setup{
   options = {},
       options = {

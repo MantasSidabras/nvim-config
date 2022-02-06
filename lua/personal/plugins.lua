@@ -32,24 +32,24 @@ return packer.startup(function(use)
   use {'nvim-lua/plenary.nvim'}
   use {'nvim-lua/popup.nvim'}
 
-  use { 'lewis6991/gitsigns.nvim'}
-  use { 'norcalli/nvim-colorizer.lua'}
-  use { 'nvim-lualine/lualine.nvim' }
   use { 'airblade/vim-rooter' }
-  use { 'vimwiki/vimwiki' }
-  use { 'morhetz/gruvbox'}
+  use { 'kana/vim-arpeggio' }
+  use { 'lewis6991/gitsigns.nvim', config = function() require('nvim-autopairs').setup() end }
   use { 'liuchengxu/vim-which-key'}
   use { 'mhinz/vim-startify'}
-  use { 'kana/vim-arpeggio' }
-  use { 'windwp/nvim-autopairs' }
+  use { 'morhetz/gruvbox'}
+  use { 'norcalli/nvim-colorizer.lua'}
+  use { 'nvim-lualine/lualine.nvim' }
+  use { 'vimwiki/vimwiki' }
+  use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end }
 
 -- File explorer
-  use{'lambdalisue/nerdfont.vim'}
-  use{'lambdalisue/fern.vim'}
-  use{'lambdalisue/fern-renderer-nerdfont.vim'}
-  use{'lambdalisue/fern-hijack.vim'}
-  use{'lambdalisue/fern-bookmark.vim'}
   use {'kyazdani42/nvim-web-devicons'} -- for file icons
+  use{'lambdalisue/fern-bookmark.vim'}
+  use{'lambdalisue/fern-hijack.vim'}
+  use{'lambdalisue/fern-renderer-nerdfont.vim'}
+  use{'lambdalisue/fern.vim'}
+  use{'lambdalisue/nerdfont.vim'}
 
 
 -- COC completion
@@ -61,12 +61,12 @@ return packer.startup(function(use)
   use { 'junegunn/fzf.vim' }
 
   use {'andymass/vim-matchup', event = 'VimEnter'}
+  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview' }
+  use {'tpope/vim-commentary'}
+  use {'tpope/vim-dadbod'} -- use for databases in future
+  use {'tpope/vim-fugitive'}
   use {'tpope/vim-surround'}
   use {'tpope/vim-unimpaired'}
-  use {'tpope/vim-commentary'}
-  use {'tpope/vim-fugitive'}
-  use {'tpope/vim-dadbod'} -- use for databases in future
-  use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview' }
 
 
   use {'moll/vim-bbye'}
