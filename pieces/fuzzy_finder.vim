@@ -8,12 +8,12 @@ command! -bang -nargs=? -complete=dir Files
 
 
 " noremap <silent><leader>ff :lua require('personal/telescope-config').project_files()<cr>
-noremap <silent><leader>ff :FzfGit<cr>
+" noremap <silent><leader>ff :FzfGit<cr>
 
 
 " noremap <Leader>b <cmd>Telescope file_browser<cr>
-" nnoremap <silent> \\ <cmd>Telescope buffers<cr>
-nnoremap <silent> \\ <cmd>FzfBuffers<cr>
+nnoremap <silent> \\ <cmd>Telescope buffers<cr>
+" nnoremap <silent> \\ <cmd>FzfBuffers<cr>
 " nnoremap <leader><end> :lua require('personal/telescope-config').search_vimfiles()<cr>
 
 let g:rooter_silent_chdir = 1
