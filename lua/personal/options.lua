@@ -6,6 +6,7 @@ local bo = vim.bo -- buffer
 g.noswapfile = true
 g.nobackup = true
 g.nowritebackup = true
+-- g.laststatus = 2
 
 wo.wrap = false
 wo.foldmethod = "expr"
@@ -23,7 +24,7 @@ o.ignorecase = true
 o.incsearch = true
 
 o.expandtab = true
-o.shiftwidth = 2
+o.shiftwidth = 4
 o.smartindent = true
 o.smarttab = true
 o.softtabstop = 4
@@ -40,7 +41,6 @@ o.formatoptions:remove({ "cro" }) -- Stop newline continution of comments
 o.hidden = false
 o.iskeyword:append({ "-" })
 -- o.iskeyword:remove {"_"} -- make _ as word delimeter
-o.laststatus = 0
 -- set pumheight=10
 o.ruler = true
 o.showtabline = 2

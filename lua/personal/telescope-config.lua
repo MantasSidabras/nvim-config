@@ -3,8 +3,7 @@ local actions = require("telescope.actions")
 local previewers = require("telescope.previewers")
 local Job = require("plenary.job")
 
-local new_maker = function(filepath, bufnr, opts)
-    filepath = vim.fn.expand(filepath)
+local new_maker = function(filepath, bufnr, opts) filepath = vim.fn.expand(filepath)
     Job
         :new({
             command = "file",
@@ -83,8 +82,9 @@ require("telescope").setup({
     },
 })
 
-require("telescope").load_extension("fzy_native")
-require("telescope").load_extension("refactoring")
+telescope = require('telescope')
+telescope.load_extension("fzy_native")
+telescope.load_extension("refactoring")
 
 vim.api.nvim_set_keymap(
     "v",
@@ -125,21 +125,22 @@ local M = {
     end,
 
     curr_buffer = function()
-        require("telescope.builtin").current_buffer_fuzzy_find({
-            layout_strategy = "horizontal",
-            layout_config = {
-                prompt_position = "top",
-                horizontal = { width = 0.99, height = 20 },
-            },
-            sorting_strategy = "ascending",
-        })
+        opts = { 
+          layout_strategy = "bottom_pane",
+          loyout_config = {
+            bottom_pane = { height = 20 },
+          }
+        }
+        require("telescope.builtin").current_buffer_fuzzy_find(opts)
     end,
 }
 
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
-keymap("n", "<leader>ff", "<cmd>lua require('personal/telescope-config').project_files()<cr>", opts)
+
 keymap("n", "<leader>fr", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>ft", "<cmd>Telescope<cr>", opts)
+keymap("n", "<leader>ff", "<cmd>lua require('personal/telescope-config').project_files()<cr>", opts)
+keymap("n", "<leader>/", "<cmd>lua require('personal/telescope-config').curr_buffer()<cr>", opts)
 keymap("n", "<leader><end>", "<cmd>lua require('personal/telescope-config').search_vimfiles()<cr>", opts)
 return M

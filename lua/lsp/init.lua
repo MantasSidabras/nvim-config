@@ -5,4 +5,4 @@ end
 
 require'lsp/lsp-installer'
 require'lsp/lspconfig'
-require'lsp/handlers'.setup()
+-- require'lsp/handlers'.setup()

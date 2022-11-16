@@ -6,6 +6,7 @@ require('lualine').setup{
         section_separators = { left = '', right = ''},
         disabled_filetypes = {},
         always_divide_middle = true,
+        -- globalstatus = true
       },
       sections = {
         lualine_a = {'mode'},
@@ -25,7 +26,16 @@ require('lualine').setup{
         lualine_z = {}
       },
   tabline = {
-      lualine_a = {'buffers'},
+      lualine_a = {
+        {
+          'buffers',
+          -- show_filename_only = false, 
+          -- show_modified_status = true,
+          icons_enabled= true,
+          mode = 0,
+          max_length = vim.o.columns
+        }
+    },
       -- lualine_b = {'branch'},
       -- lualine_c = {'filename'},
       -- lualine_x = {},

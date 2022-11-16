@@ -28,6 +28,6 @@ vim.cmd([[
 vim.cmd([[
   augroup highlight_yank
       autocmd!
-      autocmd TextYankPost * silent! lua vim.highlight.on_yank { timeout=600 }
+      autocmd TextYankPost * silent! lua vim.highlight.on_yank { timeout=500 }
   augroup END
 ]])

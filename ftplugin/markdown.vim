@@ -2,9 +2,10 @@
 map <buffer> j gj
 map <buffer> k gk
 " formatting text
-setlocal formatoptions=1
+set formatoptions=1
+set formatoptions+=aw
 setlocal noexpandtab
-setlocal wrap
+" setlocal wrap
 setlocal linebreak
 setlocal textwidth=80
 setlocal colorcolumn=81

@@ -33,9 +33,14 @@ keymap("n", "N", "Nzzzv", opts)
 keymap("n", "x", '"_x', opts)       -- paste doesn't override register
 keymap("n", "<Del>", '"_x', opts)   -- paste doesn't override register
 keymap("n", "X", '"_X', opts)       -- paste doesn't override register
+
+keymap("n", "<F3>", ":normal ysiW", noremap)
+
+keymap("n", "<F4>", ":normal cs", noremap)
 -- Comand
 keymap("c", "w!!", "w !sudo tee %", noremap)
 
+keymap("n", "<F5>", "<cmd>luafile %<CR>", noremap)
 -- Visual
 -- better tabbing
 keymap("v", "<", "<gv", opts)
