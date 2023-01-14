@@ -14,9 +14,9 @@ augroup END
 
 let g:fern#renderer = "nerdfont"
 nnoremap <silent><leader>bm :Fern bookmark:///<CR>
-nnoremap <silent><C-n> :Fern . -reveal=% -drawer  -width=40 -toggle<CR>
+nnoremap <silent><leader>n :Fern . -reveal=% -drawer  -width=40 -toggle<CR>
 
-" Add dirs and files inside the brackets that need to remain hidden
+" Abd dirs and files inside the brackets that need to remain hidden
 let hide_dirs  = '^\%(\.git\|node_modules\)$'  " here you write the dir names 
 let hide_files = '\%(\.pyc\)\+'    " here you write the file names
 let g:fern#default_exclude = hide_dirs . '\|' . hide_files  " here you exclude them
