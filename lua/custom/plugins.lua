@@ -58,7 +58,7 @@ return function(use)
   use 'folke/todo-comments.nvim'
 
 
-  use 'sainnhe/everforest'
+  use 'sainnhe/everforest' -- nice theme
   use 'xiyaowong/nvim-transparent'
-  use 'eandrju/cellular-automaton.nvim'
+  use 'eandrju/cellular-automaton.nvim' -- makes editor go nuts :CellularAutomaton make_it_rain
 end
