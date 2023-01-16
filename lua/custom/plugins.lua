@@ -7,7 +7,11 @@ return function(use)
   })
   -- vim goodness
   use({ "kana/vim-arpeggio" })
-  use({ "tpope/vim-surround" })
+  -- use({ "tpope/vim-surround" })
+  use({ "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function() require("nvim-surround").setup({}) end
+  })
   use({ "tpope/vim-unimpaired" })
   use({ "tpope/vim-repeat" })
   use({ "moll/vim-bbye" })
@@ -24,6 +28,7 @@ return function(use)
 
   use({ "airblade/vim-rooter" })
   use({ 'mbbill/undotree' })
+  -- use({ 'karb94/neoscroll.nvim' }, { config = function() require('neoscroll').setup() end })
 
   -- focus
   use({ "folke/twilight.nvim", config = function() require("twilight").setup({}) end })
@@ -31,17 +36,19 @@ return function(use)
 
   -- language features
   use({
-    "windwp/nvim-ts-autotag",
+    'windwp/nvim-ts-autotag',
     config = function()
-      require("nvim-treesitter.configs").setup({
+      require('nvim-treesitter.configs').setup({
         autotag = { enable = true }
       })
     end
   })
 
-  use({ "jose-elias-alvarez/null-ls.nvim" })
 
-  
+  use({ 'nvim-treesitter/nvim-treesitter-refactor' })
+  use({ 'jose-elias-alvarez/null-ls.nvim' })
+
+
   use {
     'rmagatti/alternate-toggler',
     event = { "BufReadPost" }, -- lazy load after reading a buffer
@@ -53,4 +60,5 @@ return function(use)
 
   use 'sainnhe/everforest'
   use 'xiyaowong/nvim-transparent'
+  use 'eandrju/cellular-automaton.nvim'
 end

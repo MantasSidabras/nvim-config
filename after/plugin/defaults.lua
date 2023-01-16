@@ -26,9 +26,10 @@ require('telescope').setup {
 vim.keymap.set('n', '<leader>fr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 
 
-vim.keymap.set('n', '<M-t>', ':Twilight<CR>', { desc = '[T]wilight' })
-vim.keymap.set('n', '<M-z>', ':ZenMode<CR>:TwilightDisable<CR>', { desc = '[Z]en mode' })
+vim.keymap.set('n', '<C-M-t>', ':Twilight<CR>', { desc = '[T]wilight' })
+vim.keymap.set('n', '<C-M-z>', ':ZenMode<CR>:TwilightDisable<CR>', { desc = '[Z]en mode' })
 vim.keymap.set('n', '<leader>ta', '<cmd>ToggleAlternate<cr>')
+vim.keymap.set('n', '<C-M-a>', '<cmd>CellularAutomaton make_it_rain<cr>')
 
 require('template-string').setup({
   filetypes = { 'typescript', 'javascript', 'typescriptreact', 'javascriptreact', 'python' }, -- filetypes where the plugin is active
