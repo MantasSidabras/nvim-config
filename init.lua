@@ -218,11 +218,11 @@ vim.keymap.set('n', '<leader>/', function()
   })
 end, { desc = '[/] Fuzzily search in current buffer]' })
 
-vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-vim.keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+vim.keymap.set('n', '<leader>ff', require('telescope.builtin').find_files, { desc = '[F]ind [F]iles' })
+vim.keymap.set('n', '<leader>fh', require('telescope.builtin').help_tags, { desc = '[F]ind [H]elp' })
+vim.keymap.set('n', '<leader>fw', require('telescope.builtin').grep_string, { desc = '[F]ind current [W]ord' })
+vim.keymap.set('n', '<leader>fg', require('telescope.builtin').live_grep, { desc = '[F]ind by [G]rep' })
+vim.keymap.set('n', '<leader>fd', require('telescope.builtin').diagnostics, { desc = '[F]ind [D]iagnostics' })
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
@@ -283,13 +283,13 @@ require('nvim-treesitter.configs').setup {
         ['<leader>sh'] = '@parameter.inner',
       },
     },
-    refactor = {
-      highlight_definitions = {
-        enable = true,
-        -- Set to false if you have an `updatetime` of ~100.
-        clear_on_cursor_move = true,
-      },
-    },
+    -- refactor = {
+    --   highlight_definitions = {
+    --     enable = true,
+    --     -- Set to false if you have an `updatetime` of ~100.
+    --     clear_on_cursor_move = true,
+    --   },
+    -- },
   },
 }
 
@@ -302,32 +302,23 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setqflist)
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
-  -- NOTE: Remember that lua is a real programming language, and as such it is possible
-  -- to define small helper and utility functions so you don't have to repeat yourself
-  -- many times.
-  --
-  -- In this case, we create a function that lets us more easily define mappings specific
-  -- for LSP related items. It sets the mode, buffer and description for us each time.
   local nmap = function(keys, func, desc)
     if desc then
       desc = 'LSP: ' .. desc
     end
-
-    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc })
+    vim.keymap.set('n', keys, func, { buffer = bufnr, desc = desc, noremap = true })
   end
+
   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
-  nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+  nmap('ga', vim.lsp.buf.code_action, '[C]ode [A]ction')
   nmap('gd', vim.lsp.buf.definition, '[G]oto [D]efinition')
   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
   nmap('gI', vim.lsp.buf.implementation, '[G]oto [I]mplementation')
   nmap('<leader>D', vim.lsp.buf.type_definition, 'Type [D]efinition')
   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
-
-  -- See `:help K` for why this keymap
   nmap('K', vim.lsp.buf.hover, 'Hover Documentation')
   nmap('<C-k>', vim.lsp.buf.signature_help, 'Signature Documentation')
-
   -- Lesser used LSP functionality
   nmap('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
   nmap('<leader>wa', vim.lsp.buf.add_workspace_folder, '[W]orkspace [A]dd Folder')
@@ -335,25 +326,15 @@ local on_attach = function(_, bufnr)
   nmap('<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, '[W]orkspace [L]ist Folders')
-
   -- Create a command `:Format` local to the LSP buffer
   vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
 end
 
--- Enable the following language servers
---  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
---
---  Add any additional override configuration in the following tables. They will be passed to
---  the `settings` field of the server config. You must look up that documentation yourself.
 local servers = {
-  -- clangd = {},
-  -- gopls = {},
   pyright = {},
-  -- rust_analyzer = {},
   tsserver = {},
-
   sumneko_lua = {
     Lua = {
       workspace = { checkThirdParty = false },
@@ -386,12 +367,27 @@ mason_lspconfig.setup_handlers {
       on_attach = function(client, buffnr)
         if server_name == 'tsserver' then
           require("twoslash-queries").attach(client, buffnr)
+          on_attach(client, buffnr)
         end
-        on_attach(client, buffnr)
       end,
       settings = servers[server_name],
     }
   end,
+}
+
+local ht = require('haskell-tools')
+local def_opts = { noremap = true, silent = true, }
+ht.setup {
+  hls = {
+    on_attach = function(client, bufnr)
+      local opts = vim.tbl_extend('keep', def_opts, { buffer = bufnr, })
+      -- haskell-language-server relies heavily on codeLenses,
+      -- so auto-refresh (see advanced configuration) is enabled by default
+      vim.keymap.set('n', '<space>ca', vim.lsp.codelens.run, opts)
+      vim.keymap.set('n', '<space>hs', ht.hoogle.hoogle_signature, opts)
+      on_attach(client, bufnr)  -- if defined, see nvim-lspconfig
+    end,
+  },
 }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(

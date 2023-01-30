@@ -38,7 +38,9 @@ vim.o.encoding = "utf-8"
 vim.o.fileencoding = "utf-8"
 -- TODO: fix
 -- vim.o.formatoptions:remove({ "cro" }) -- Stop newline continution of comments
-vim.o.hidden = false
+vim.o.hidden = true
+vim.o.autoread = true
+vim.o.autowrite = true
 -- TODO: fix
 -- vim.o.iskeyword:append({ "-" })
 -- o.iskeyword:remove {"_"} -- make _ as word delimeter

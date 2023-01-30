@@ -46,3 +46,4 @@ keymap("v", ">", ">gv", opts)
 keymap("n", "J", "mzJ`z", opts) -- no jitter while line joining
 keymap("v", "K", ":m '<-2<CR>gv=gv", opts) -- move text block up
 keymap("v", "J", ":m '>+1<CR>gv=gv", opts) -- move text block down
+keymap("n", ",l", "<cmd>make<CR>", opts)
